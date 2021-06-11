@@ -1,0 +1,48 @@
+$landscape_aspect_ratio: 40.9%;
+$portrait_aspect_ratio: 112.4%;
+.heroslider {
+    &-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    &-landscape {
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+        padding-top: $landscape_aspect_ratio;
+    }
+    &-portrait {
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+        padding-top: $portrait_aspect_ratio;
+    }
+    &__foreground {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-size: contain;
+        z-index: 100;
+    }
+    &__background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    &__carousel {
+        &-img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

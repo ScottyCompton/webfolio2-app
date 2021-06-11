@@ -1,0 +1,176 @@
+// Bootstrap breakpoints
+$xs-breakpoint: 576px;
+$sm-breakpoint: 576px;
+$md-breakpoint: 768px;
+$lg-breakpoint: 992px;
+$xl-breakpoint: 1200px;
+//
+// colors
+//
+$dark-gray: #333333;
+$gray: #666;
+$med-gray: #888;
+$blue: #1c88bf;
+$dark-blue: #364051;
+$off-white: #f7f7f7;
+//
+// font-sizes:
+//
+$font-size-lg: 1.8rem;
+$font-size-sm: 1.4rem;
+//
+// sizing/spacing
+//
+$s-size: 1.2rem;
+$m-size: 1.6rem;
+$l-size: 3.2rem;
+$xl-size: 4.8rem;
+// //
+// // backgrounds
+// //
+.bg-white {
+    background: $off-white;
+}
+
+.shell {
+    min-height: 90vh;
+    position: relative;
+    width: 100%;
+    float: left;
+}
+
+label.btn {
+    cursor: pointer;
+}
+
+.no-scroll {
+    overflow-y: hidden;
+}
+
+.btn {
+    white-space: nowrap;
+}
+
+.show-for-mobile {
+    @media screen and (min-width: $sm-breakpoint) {
+        display: none;
+    }
+}
+
+.show-for-desktop {
+    @media screen and (max-width: $sm-breakpoint) {
+        display: none;
+    }
+}
+
+.no-padding {
+    padding: 0!important;
+    margin: 0!important;
+}
+
+body {
+    background: $black;
+    &:before {
+        position: fixed;
+        top: 500px;
+        left: -100px;
+        bottom: 0;
+        content: '';
+        width: 400px;
+        height: 400px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        -webkit-transform: rotate(20deg);
+        -moz-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+        -o-transform: rotate(20deg);
+        transform: rotate(20deg);
+    }
+    &:after {
+        position: fixed;
+        top: -150px;
+        right: -50px;
+        bottom: 0;
+        content: '';
+        width: 400px;
+        height: 600px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        -webkit-transform: rotate(-30deg);
+        -moz-transform: rotate(-30deg);
+        -ms-transform: rotate(-30deg);
+        -o-transform: rotate(-30deg);
+        transform: rotate(-30deg);
+    }
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    @media screen and (min-width: $xs-breakpoint) {
+        overflow-x: inherit;
+    }
+}
+
+// .fade-appear,
+// .fade-enter {
+//     opacity: 0;
+//     z-index: 1;
+// }
+// .fade-appear-active,
+// .fade-enter.fade-enter-active {
+//     opacity: 1.0;
+//     transition: opacity 600ms linear 150ms;
+// }
+// .fade-exit {
+//     opacity: 1.0;
+// }
+// .fade-exit.fade-exit-active {
+//     opacity: 0;
+//     transition: opacity 600ms linear;
+//     .hide-on-nav {
+//         visibility: hidden;
+//     }
+// }
+.section-bkg {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    // @media screen and (min-width: $xs-breakpoint) {
+    //     overflow-x: inherit;
+    // }
+}
+
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+    opacity: 1.0;
+    transition: opacity 600ms linear 150ms;
+}
+
+.fade-exit {
+    opacity: 1.0;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 600ms linear;
+    .hide-on-nav {
+        visibility: hidden;
+    }
+}
