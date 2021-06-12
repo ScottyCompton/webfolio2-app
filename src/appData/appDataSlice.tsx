@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {AppDataState, RailState} from '../interfaces';
+import {AppDataState, RailState, ReturnState} from '../interfaces';
 
 const initialState: AppDataState = {
     portfolio: [],
@@ -23,8 +23,10 @@ const initialState: AppDataState = {
     ui: {
         isLoading: true,
         railStates: [],
-        returnOffsetTop: 0
-
+        returnState: {
+            offsetTop: 0,
+            returnHome: false
+        }
     }
 }
 
@@ -48,16 +50,17 @@ const appDataSlice = createSlice({
 
         setRailStates(state, action:PayloadAction<RailState[]>) {
             state.ui.railStates = action.payload;
-        },   
-        setReturnOffsetTop(state, action:PayloadAction<number>) {
-            state.ui.returnOffsetTop = action.payload;
-        }
+        },  
+
+        setReturnState(state, action:PayloadAction<ReturnState>) {
+            state.ui.returnState = action.payload;
+        },
 
     }
 })
 
 const {actions, reducer} = appDataSlice;
 
-export const {loadAppData, setAppLoading, setRailStates, setReturnOffsetTop} = actions;
+export const {loadAppData, setAppLoading, setRailStates, setReturnState} = actions;
 export default reducer;
 

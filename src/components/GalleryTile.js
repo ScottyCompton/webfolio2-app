@@ -2,7 +2,6 @@ import ImageWithPreloader from './ImageWithPreloader';
 
 const GalleryTile = (props) => {
     const {handleClick, src, idx, auxImgAspectRatio} = props;
-    console.log(auxImgAspectRatio)
     const doHandleClick = (e) => {
         handleClick(e,idx);
     }

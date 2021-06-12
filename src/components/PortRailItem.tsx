@@ -4,9 +4,9 @@ import { history } from '../routes/AppRouter';
 import {useAppSelector, useAppDispatch} from '../hooks/redux-hooks';
 import {PortRailItemProps} from '../interfaces';
 import {useState} from 'react';
-import {appDataActions_setReturnOffsetTop} from '../appData/appDataActions';
+import {appDataActions_setReturnState} from '../appData/appDataActions';
 
-const PortRailItem:React.FC<PortRailItemProps> = ({_id}) => {
+const PortRailItem:React.FC<PortRailItemProps> = ({_id, slideIdx, slideIndexSetter}) => {
 
     const data = useAppSelector(state => state.appData.portfolio.find(item => item._id === _id))!
     const {projectTitle, shortDesc, previewImgUrl, techSpecs, projectUrl, auxImgs} = data;    
@@ -35,8 +35,10 @@ const PortRailItem:React.FC<PortRailItemProps> = ({_id}) => {
 
         e.preventDefault();
         const top = window.scrollY;
-        dispatch(appDataActions_setReturnOffsetTop(top));
         window.scrollTo(0,0);
+        slideIndexSetter(slideIdx);
+        
+        dispatch(appDataActions_setReturnState(top, false));
         history.push(`/portfolio/${_id}`);
     }
     

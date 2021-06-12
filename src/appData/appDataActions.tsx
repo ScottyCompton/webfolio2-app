@@ -1,5 +1,5 @@
 import { getData } from '../helpers/handleHttp';
-import {setAppLoading, loadAppData, setRailStates, setReturnOffsetTop} from './appDataSlice';
+import {setAppLoading, loadAppData, setRailStates, setReturnState} from './appDataSlice';
 import {RailState} from '../interfaces';
 
 export const appDataActions_loadAppData = () => {
@@ -31,12 +31,26 @@ export const appDataActions_setRailStates = (payload: RailState[]) => {
 }
 
 
-export const appDataActions_setReturnOffsetTop = (payload: number) => {
+export const appDataActions_setReturnState = (offsetTop: number, returnHome: boolean) => {
     return async (dispatch: any) => {
         try {
-            dispatch(setReturnOffsetTop(payload))
+            dispatch(setReturnState({
+                offsetTop,
+                returnHome
+            }))
         } catch (error) {
             console.log(error);
         }
     }
+}
+
+
+export const appDataActions_setAppIsLoading = (payload: boolean)  => {
+    return async (dispatch: any) => {
+        try {
+            dispatch(setAppLoading(payload));
+        } catch(error) {
+            console.log(error);
+        }
+    }    
 }

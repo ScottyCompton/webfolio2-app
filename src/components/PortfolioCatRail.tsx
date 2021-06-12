@@ -11,9 +11,10 @@ import {PortCategoryRailProps, SortablePortfolioItem} from '../interfaces';
 
 
 const PortfolioCategoryRail:React.FC<PortCategoryRailProps> = ({category_id}) => {
-    const portfolio = useAppSelector(state => state.appData.portfolio);
-    const appLoaded = useAppSelector(state => !state.appData.ui.isLoading);
-    const railStates = useAppSelector(state => state.appData.ui.railStates);
+    const appData = useAppSelector(state => state.appData);
+    const {portfolio, ui} = appData;
+    const {isLoading, railStates} = ui;
+
     const [initialSlide, setInitialSlide]  = useState(0)
     const dispatch = useAppDispatch();
     let filteredList:SortablePortfolioItem[] = [];
@@ -29,12 +30,13 @@ const PortfolioCategoryRail:React.FC<PortCategoryRailProps> = ({category_id}) =>
         currRailStates.splice(railStateIdx, 1);
         const updatedRailStates = [...currRailStates, {_id: category_id, currentSlide: current}];
         dispatch(appDataActions_setRailStates(updatedRailStates))
-        setInitialSlide(current);    
+        setInitialSlide(current);   
+   
     }
 
 
     useEffect(() => {
-        if(appLoaded) {
+        if(!isLoading) {
             if(railStates.length !== 0) {
                 const thisRailState = railStates.filter((rail) => {
                     return rail._id === category_id
@@ -44,7 +46,7 @@ const PortfolioCategoryRail:React.FC<PortCategoryRailProps> = ({category_id}) =>
                 setInitialSlide(0)
             }
         }
-    }, [appLoaded, initialSlide, railStates, category_id]) 
+    }, [isLoading, initialSlide, railStates, category_id]) 
 
 
 
@@ -140,9 +142,9 @@ const PortfolioCategoryRail:React.FC<PortCategoryRailProps> = ({category_id}) =>
         if(filteredList.length > 0) {
             return (
                 <Slider {...settings}>
-                    {filteredList.map((item) => {
+                    {filteredList.map((item, slideIdx) => {
                         return (
-                            <PortRailItem _id={item._id} key={uuid()} />
+                            <PortRailItem _id={item._id} slideIndexSetter={setCurrentSlideIndex} slideIdx={slideIdx} key={uuid()} />
                         )
                     })}                
                 </Slider>
@@ -157,7 +159,7 @@ const PortfolioCategoryRail:React.FC<PortCategoryRailProps> = ({category_id}) =>
 
 
 
-      if(appLoaded) {
+      if(!isLoading) {
           return (
             displayCatPortfolo()
           )

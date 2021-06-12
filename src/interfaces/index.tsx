@@ -72,11 +72,15 @@ export interface RailState {
     currentSlide: number
 }
 
+export interface ReturnState {
+    offsetTop: number;
+    returnHome: boolean;
+}
 
 export interface AppUIState {
     isLoading: boolean;
     railStates: RailState[];
-    returnOffsetTop: number;
+    returnState: ReturnState;
 }
 
 
@@ -99,7 +103,7 @@ export interface ImageWithPreloaderProps {
 
 
 export interface SliderArrowProps {
-    onClick?(e: React.MouseEvent<HTMLDivElement, MouseEvent>): () =>{};
+    onClick?(e: React.MouseEvent<HTMLDivElement, MouseEvent>): () => void;
     type?: string;
     className?: string;
 }
@@ -107,6 +111,8 @@ export interface SliderArrowProps {
 
 export interface PortRailItemProps {
     _id: string;
+    slideIdx: number;
+    slideIndexSetter: (current: number) => void
 }
 
 export interface PortfolioItemDetailsProps {

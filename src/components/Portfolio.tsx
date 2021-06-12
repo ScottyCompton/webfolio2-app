@@ -5,8 +5,6 @@ import {useEffect} from 'react';
 import {appDataActions_setRailStates} from '../appData/appDataActions';
 import {RailState} from '../interfaces';
 import PortfolioCatRail from './PortfolioCatRail';
-//import portfolioListFilter from '../selectors/portfolio-list-filter'
-
 
 
 const Portfolio:React.FC = () => {

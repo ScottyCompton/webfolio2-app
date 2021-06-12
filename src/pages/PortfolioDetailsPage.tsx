@@ -1,5 +1,5 @@
-import {useAppSelector, useAppDispatch} from '../hooks/redux-hooks';
-import {useState, useEffect, useRef} from 'react';
+import {useAppSelector} from '../hooks/redux-hooks';
+import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import {v4 as uuid} from 'uuid';
 import Slider from 'react-slick';
@@ -7,44 +7,39 @@ import SliderArrow from '../components/SliderArrow';
 import GalleryTile from '../components/GalleryTile';
 import { history } from '../routes/AppRouter';
 import {PortfolioItemDetailsProps} from '../interfaces';
-//import {appDataActions_setReturnOffsetTop} from '../appData/appDataActions';
+import {appDataActions_setReturnState, appDataActions_setAppIsLoading} from '../appData/appDataActions';
+import {useAppDispatch} from '../hooks/redux-hooks';
+
 
 const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}) => {
     const _id = location.pathname.split('/')[2];
 
     const [galleryMode, setGalleryMode] = useState('slideshow');
-
-
-
-    
     const appLoaded = useAppSelector(state => !state.appData.ui.isLoading)
     const portfolioItem = useAppSelector(state => state.appData.portfolio.find(item => item._id === _id))!
-    // const slider = useRef();
-    // const dispatch = useAppDispatch();
+    const portCats = useAppSelector(state => state.appData.categories);
+    const returnState = useAppSelector(state => state.appData.ui.returnState)
+    const dispatch = useAppDispatch();
 
     const {previewImgUrl, cso, auxImgs, githubUrl, techSpecs, projectTitle, shortDesc, longDesc, projectUrl, auxImgAspectRatio} = portfolioItem;
 
-
-    
 
     useEffect(() => {
         if(appLoaded) {
             setGalleryMode((prev) => {
                 return auxImgs && auxImgs.length === 1 ? 'slideshow' : 'tile';
-
             })            
         }
-    }, [appLoaded, auxImgs])
+//        dispatch(appDataActions_setReturnState(returnState.offsetTop, true))
+        window.scrollTo(0, 0);
+
+    }, [appLoaded, auxImgs, dispatch, returnState.offsetTop])
 
 
     const handleReturn = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        dispatch(appDataActions_setAppIsLoading(true))
+        dispatch(appDataActions_setReturnState(returnState.offsetTop, true))
         e.preventDefault();
-        // this is to makesure that the home page scroller only works
-        // once when componentDidMount() fires on the home page load.
-        
-        // TODO: figure out WTF this is all about ...
-        //localStorage.setItem('returnhome','1');
-
         history.push('/');
     }
 
@@ -53,7 +48,6 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
         e.preventDefault();
 
         var w = window.innerWidth;
-        //var h = window.innerHeight;
         if(w < 768) {
             return false;
         }
@@ -64,16 +58,6 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
             }
             return 'tile';
         })
-
-    
-        // TODO: figure out how to reimplment this
-
-        // setTimeout(() => {
-        //     if(galleryMode === 'slideshow' && slider) {
-        //         slider.slickGoTo(idx);
-        //     }
-        // }, 500)
-
 
     }
 
@@ -95,34 +79,21 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
 
         }
 
-        const projectCats = () => {
-            let aryCats:any = [];
 
-            // remove the slash from the end of the last category or it'll look weird
-            //aryCats[aryCats.length-1] = aryCats[aryCats.length-1].replace(' / ', '');
-            return 'cats go here';
-            // {aryCats.map((cat) => {
-            //     return (
-            //         <span key={uuid()}>{cat}</span>
-            //         )
-            // })}
-        }
+        const projectCats = portCats.filter((portCat) => {
+            let inCat = false;
+            cso.forEach((csoItem) => {
+                if (csoItem.category_id === portCat._id) {
+                    inCat = true;
+                }
+            })
+            return inCat;
+        })
 
 
         const logoStyle = {
             backgroundImage: `url(${previewImgUrl})`
         }
-
-        
-        // portCategories.forEach((cat) => {
-        //     const idx = cso.findIndex((portcat) => {
-        //         return portcat+'' === cat.id+''
-        //     })
-        //     if(idx !== -1) {
-
-        //         aryCats.push(`${cat.name} / `)
-        //     }
-        // })
 
 
         const tilesClass = galleryMode === 'tile' ? 'Portfolio-Item__Gallery--tiles content--active' : 'Portfolio-Item__Gallery--tiles content--inactive';
@@ -147,6 +118,8 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
                                     <div className="Portfolio-Item__Summary">
                                         <h1 className="Portfolio-Item__Title text-primary">{projectTitle}</h1>
                                         <h6>{shortDesc}</h6>
+                                        <p>&nbsp;</p>
+
                                         <div className="Portfolio-Item__Subdetails">
                                         {projectUrl && 
                                             <div className="Portfolio-Item__Subdetail">
@@ -161,21 +134,25 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
                                             </div>                                        
                                         }
                                         {techSpecs && 
-                                                <div className="Portfolio-Item__Subdetail">
+                                            <div className="Portfolio-Item__Subdetail">
                                                 <div className="Subdetail_left text-primary">Technologies Used: </div>
                                                 <div className="Subdetail_right">{techSpecs}</div>
                                             </div>                                            
                                         }
-
+                                            <div className="Portfolio-Item__Subdetail">
+                                                <div className="Subdetail_left text-primary">Project Categories: </div>
+                                                <div className="Subdetail_right">
+                                                {projectCats.map((cat, index) => {
+                                                        return (<span key={uuid()}>{cat.category}{index !== projectCats.length-1 && ', '}</span>)
+                                                    })
+                                                }    
+                                                </div>
+                                            </div>                                            
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="Portfolio-Item__Content">
-                                    <div className="Portfolio-Item__Portcats">
-                                        <span  className="text-primary">Project Categories: </span>
-                                        {projectCats()}
-                                    </div>
                                     {longDesc && 
                                     <div className="Portfolio-Item__LongDesc section-content">
                                         <h4 className="text-primary Portfolio-Item__Subtitle">About This Project</h4>

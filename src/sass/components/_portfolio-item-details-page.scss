@@ -64,10 +64,8 @@
     position: relative;
     padding: 5px 0;
     flex-direction: column;
-    border-bottom: 1px solid $gray-400;
     @media screen and (min-width: $xs-breakpoint) {
         flex-direction: row;
-        border-bottom: 2px solid $gray-400;
     }
 }
 

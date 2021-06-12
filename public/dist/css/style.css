@@ -7749,12 +7749,10 @@ body {
   display: flex;
   position: relative;
   padding: 5px 0;
-  flex-direction: column;
-  border-bottom: 1px solid #adafae; }
+  flex-direction: column; }
   @media screen and (min-width: 576px) {
     .Portfolio-Item__Head {
-      flex-direction: row;
-      border-bottom: 2px solid #adafae; } }
+      flex-direction: row; } }
 
 .Portfolio-Item__Logo {
   width: 100%;
