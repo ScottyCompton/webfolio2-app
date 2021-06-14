@@ -15,6 +15,7 @@ const initialState: AppDataState = {
         instagramId: '',
         linkedinUsername: '',
         resumeUrl: '',
+        skypeId: '',
         siteTitle: '',
         twitterHandle: '',
         youTubeId: ''

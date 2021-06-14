@@ -60,6 +60,7 @@ export interface AppSettings {
     githubId: string;
     instagramId: string;
     linkedinUsername: string;
+    skypeId: string;
     resumeUrl: string;
     siteTitle: string;
     twitterHandle: string;
@@ -118,3 +119,5 @@ export interface PortRailItemProps {
 export interface PortfolioItemDetailsProps {
     location: any;
 }
+
+

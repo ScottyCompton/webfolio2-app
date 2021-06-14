@@ -1,6 +1,7 @@
 import {useAppSelector} from '../hooks/redux-hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faAt, faMobileAlt} from '@fortawesome/free-solid-svg-icons'
+import {faSkype} from '@fortawesome/free-brands-svg-icons';
 
 
 
@@ -12,6 +13,7 @@ const AboutSection:React.FC = () => {
         aboutImgUrl, 
         aboutTitle, 
         contactEmail, 
+        skypeId,
         resumeUrl,
         contactPhone, 
         } = settings
@@ -53,6 +55,7 @@ const AboutSection:React.FC = () => {
                                             <div className="about-contact">
                                                 <div className="about-contact-block"><FontAwesomeIcon icon={faAt} className="text-primary"></FontAwesomeIcon><span>{contactEmail}</span></div>
                                                 <div className="about-contact-block"><FontAwesomeIcon icon={faMobileAlt} className="text-primary"></FontAwesomeIcon><span>{contactPhone}</span></div>
+                                                {skypeId !== '' && <div className="about-contact-block"><FontAwesomeIcon icon={faSkype} className="text-primary"></FontAwesomeIcon><span>{skypeId}</span></div>}
                                             </div>
                                         </div>
                                         <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3 d-none d-sm-block">
