@@ -1,4 +1,5 @@
-import { getData } from '../helpers/handleHttp';
+//import { getData } from '../helpers/handleHttp';
+import getData from '../fixtures/staticData';
 import {setAppLoading, loadAppData, setRailStates, setReturnState} from './appDataSlice';
 import {RailState} from '../interfaces';
 
@@ -7,7 +8,7 @@ export const appDataActions_loadAppData = () => {
     return async (dispatch: any) => {
         try {
             setAppLoading(true)
-            getData('appdata').then((payload) => {
+            getData('appdata').then((payload:any) => {
                 dispatch(loadAppData(payload))
             }).then(() => {
                 setAppLoading(false);
