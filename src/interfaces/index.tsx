@@ -1,3 +1,5 @@
+import { IconName } from '@fortawesome/fontawesome-common-types'
+
 export interface PortCategoryRailProps {
     category_id: string;
 }
@@ -22,6 +24,26 @@ export interface SliderImg {
     displayOrder: number;
     sliderImgUrl: string;
 }
+
+
+export interface ContactItem {
+    name: string;
+    displayValue: string;
+    linkUrl?: string;
+    fontAwesomeIcon: IconName;
+    faPrefix: 'fas' | 'fab';
+}
+
+
+export interface ContactListItemProps {
+    name: string;
+    displayValue: string;
+    linkUrl?: string;
+    fontAwesomeIcon: IconName;
+    className: string;
+    faPrefix: 'fas' | 'fab';
+}
+
 
 export interface PortfolioItem {
     _id: string;
@@ -91,6 +113,7 @@ export interface AppDataState {
     categories: PortfolioCategory[];
     settings: AppSettings;
     sliderImgs: SliderImg[];
+    contactItems: ContactItem[];
     ui: AppUIState;
 }
 
@@ -120,4 +143,13 @@ export interface PortfolioItemDetailsProps {
     location: any;
 }
 
+
+export interface AppImageProps {
+    src: string;
+    id: string;
+    altText?: string;
+    style?: any;
+    className?: string;
+    defaultImg?: string;
+}
 

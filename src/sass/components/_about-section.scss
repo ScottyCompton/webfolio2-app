@@ -1,3 +1,7 @@
+#about-section {
+    margin-bottom: 20px;
+}
+
 .about-section__about {
     @media screen and (min-width: $lg-breakpoint) {
         padding: 100px 0;
@@ -40,20 +44,45 @@
     display: flex;
     margin-top: 5vh;
     flex-direction: column;
-}
-
-.about-contact-block {
-    margin-right: 30px;
-    font-size: 1.4rem;
-    @media screen and (min-width: $md-breakpoint) {
-        font-size: 2.0rem;
+    float: left;
+    h6 {
+        border-bottom: 1px solid #707070;
     }
-    @media screen and (min-width: $lg-breakpoint) {
-        font-size: 2.5rem;
-    }
-    span {
-        padding: 3px;
-        margin-left: 5px;
+    &-block {
+        //    margin-right: 30px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        .about-block__icon {
+            width: 2.0rem;
+        }
+        &--mobile {
+            @media screen and (min-width: $sm-breakpoint) {
+                display: block;
+            }
+            @media screen and (min-width: $lg-breakpoint) {
+                display: none;
+            }
+        }
+        &--desktop {
+            @media screen and (min-width: $sm-breakpoint) {
+                display: none;
+            }
+            @media screen and (min-width: $lg-breakpoint) {
+                display: block;
+            }
+        }
+        @media screen and (min-width: $md-breakpoint) {
+            padding: 2px 0;
+            font-size: 0.9rem;
+        }
+        @media screen and (min-width: $lg-breakpoint) {
+            padding: 2px 0;
+            font-size: 0.9rem;
+        }
+        span {
+            padding: 3px;
+            margin-left: 5px;
+        }
     }
 }
 

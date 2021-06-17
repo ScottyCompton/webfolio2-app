@@ -28,7 +28,8 @@ const initialState: AppDataState = {
             offsetTop: 0,
             returnHome: false
         }
-    }
+    },
+    contactItems: []
 }
 
 const appDataSlice = createSlice({
@@ -45,6 +46,7 @@ const appDataSlice = createSlice({
             state.portfolio = action.payload.portfolio;
             state.settings = action.payload.settings;
             state.sliderImgs = action.payload.sliderImgs;
+            state.contactItems = action.payload.contactItems;
             state.ui.isLoading = false;
             state.ui.railStates = [];
         },

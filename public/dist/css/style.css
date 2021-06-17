@@ -7460,6 +7460,9 @@ body {
   width: 100%;
   height: auto; }
 
+#about-section {
+  margin-bottom: 20px; }
+
 @media screen and (min-width: 992px) {
   .about-section__about {
     padding: 100px 0; } }
@@ -7495,20 +7498,38 @@ body {
 .about-contact {
   display: flex;
   margin-top: 5vh;
-  flex-direction: column; }
-
-.about-contact-block {
-  margin-right: 30px;
-  font-size: 1.4rem; }
-  @media screen and (min-width: 768px) {
-    .about-contact-block {
-      font-size: 2.0rem; } }
-  @media screen and (min-width: 992px) {
-    .about-contact-block {
-      font-size: 2.5rem; } }
-  .about-contact-block span {
-    padding: 3px;
-    margin-left: 5px; }
+  flex-direction: column;
+  float: left; }
+  .about-contact h6 {
+    border-bottom: 1px solid #707070; }
+  .about-contact-block {
+    font-size: 0.9rem;
+    white-space: nowrap; }
+    .about-contact-block .about-block__icon {
+      width: 2.0rem; }
+    @media screen and (min-width: 576px) {
+      .about-contact-block--mobile {
+        display: block; } }
+    @media screen and (min-width: 992px) {
+      .about-contact-block--mobile {
+        display: none; } }
+    @media screen and (min-width: 576px) {
+      .about-contact-block--desktop {
+        display: none; } }
+    @media screen and (min-width: 992px) {
+      .about-contact-block--desktop {
+        display: block; } }
+    @media screen and (min-width: 768px) {
+      .about-contact-block {
+        padding: 2px 0;
+        font-size: 0.9rem; } }
+    @media screen and (min-width: 992px) {
+      .about-contact-block {
+        padding: 2px 0;
+        font-size: 0.9rem; } }
+    .about-contact-block span {
+      padding: 3px;
+      margin-left: 5px; }
 
 .resume-url {
   margin-top: 5vh; }

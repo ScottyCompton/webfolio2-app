@@ -12,7 +12,7 @@ const Footer:React.FC = () => {
                             <br /><br />
                             Scott C. Lonis, a.k.a. Scotty Compton<br />
                             Dallas, Texas and sometimes Jaco, Costa Rica<br/>
-                            (806)-503-9174 | scott.lonis@outlook.com
+                            011-506-6477-7183 (phone/text) | scott.lonis@outlook.com
 
                         </div>
                         
