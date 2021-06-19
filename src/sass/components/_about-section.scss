@@ -8,6 +8,10 @@
     }
 }
 
+.about-blurb {
+    text-align: justify;
+}
+
 .are-you-hiring {
     padding: 10px 0;
     font-size: 18px;
@@ -33,9 +37,11 @@
     img {
         width: 100%;
         height: auto;
-        border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         @media screen and (min-width: $sm-breakpoint) {
-            border-radius: 50%;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
     }
 }

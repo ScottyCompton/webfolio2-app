@@ -6,6 +6,7 @@ import {PortRailItemProps} from '../interfaces';
 import {useState} from 'react';
 import {appDataActions_setReturnState} from '../appData/appDataActions';
 
+
 const PortRailItem:React.FC<PortRailItemProps> = ({_id, slideIdx, slideIndexSetter}) => {
 
     const data = useAppSelector(state => state.appData.portfolio.find(item => item._id === _id))!
@@ -29,6 +30,7 @@ const PortRailItem:React.FC<PortRailItemProps> = ({_id, slideIdx, slideIndexSett
         //e.target.blur();
     }
 
+    
     const handleViewDetailsClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         // instead of a regular link back, i want the portfolio item
         // page to scroll to the top of the page when it lands there
@@ -42,6 +44,8 @@ const PortRailItem:React.FC<PortRailItemProps> = ({_id, slideIdx, slideIndexSett
         history.push(`/portfolio/${_id}`);
     }
     
+
+
 
 	const handleCloseWindowClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault();

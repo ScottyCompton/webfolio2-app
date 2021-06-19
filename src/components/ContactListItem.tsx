@@ -8,11 +8,10 @@ const ContactListItem:React.FC<ContactListItemProps> = ({name, displayValue, fon
 
     library.add(fab, fas)
 
-
     if(linkUrl) {
-        return (<div className={className}><a href={linkUrl} target="_blank" rel="noreferrer" title={`Find me on ${name}`}><FontAwesomeIcon icon={[faPrefix, fontAwesomeIcon]} className="text-primary about-block__icon"></FontAwesomeIcon><span>{displayValue}</span></a></div>);
+        return (<div className={className}><a href={linkUrl} target="_blank" rel="noreferrer" title={name}><FontAwesomeIcon icon={[faPrefix, fontAwesomeIcon]} className="text-primary about-block__icon"></FontAwesomeIcon><span className="text-dark">{displayValue}</span></a></div>);
     } else {
-        return (<div className={className} title={`Find me on ${name}`}><FontAwesomeIcon icon={[faPrefix, fontAwesomeIcon]} className="text-primary about-block__icon"></FontAwesomeIcon><span>{displayValue}</span></div>);
+        return (<div className={className}><a href="#nowhere"  rel="noreferrer" title={name}><FontAwesomeIcon icon={[faPrefix, fontAwesomeIcon]} className="text-primary about-block__icon"></FontAwesomeIcon><span className="text-dark">{displayValue}</span></a></div>);
     }
 
 

@@ -3,6 +3,7 @@ import {useState} from 'react';
 import useEvent from '../hooks/useEvent';
 import {Container, Row, Col, Carousel} from 'react-bootstrap';
 import {v4 as uuidv4} from 'uuid';
+import ImgUrl from '../helpers/appImageUrl';
 
 const HeroSlider:React.FC = () => {
 
@@ -34,7 +35,7 @@ const HeroSlider:React.FC = () => {
                     <Carousel interval={7000} fade id="heroslider__carousel">
                         {slides.map((slide) => {
                             return (<Carousel.Item key={uuidv4()}>
-                                <img src={slide.sliderImgUrl} alt="" className="heroslider__carousel-img" />
+                                <img src={ImgUrl(slide.sliderImgUrl)} alt="" className="heroslider__carousel-img" />
                             </Carousel.Item>)
                         })}
 

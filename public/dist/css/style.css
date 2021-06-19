@@ -7467,6 +7467,9 @@ body {
   .about-section__about {
     padding: 100px 0; } }
 
+.about-blurb {
+  text-align: justify; }
+
 .are-you-hiring {
   padding: 10px 0;
   font-size: 18px;
@@ -7490,10 +7493,12 @@ body {
   .about-img img {
     width: 100%;
     height: auto;
-    border-radius: 5px; }
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
     @media screen and (min-width: 576px) {
       .about-img img {
-        border-radius: 50%; } }
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px; } }
 
 .about-contact {
   display: flex;
@@ -7712,6 +7717,10 @@ body {
 .slick-next:before,
 .slick-prev:before {
   display: none; }
+
+.slick-list,
+.slick-track {
+  touch-action: pan-y; }
 
 .Portfolio-Item {
   width: 100%;

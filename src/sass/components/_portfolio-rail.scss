@@ -177,3 +177,8 @@
 .slick-prev:before {
     display: none;
 }
+
+.slick-list,
+.slick-track {
+    touch-action: pan-y;
+}

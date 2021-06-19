@@ -1,7 +1,7 @@
 import {useAppSelector} from '../hooks/redux-hooks';
 import AppImage from './AppImage';
 import ContactMethodsList from './ContactMethodsList';
-
+import parse from 'html-react-parser';
 
 
 const AboutSection:React.FC = () => {
@@ -37,16 +37,17 @@ const AboutSection:React.FC = () => {
                                         <div className="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                                             <div className="about-blurb">
                                                 <div className="about-img d-block d-sm-none">
-                                                    <img src={aboutImgUrl} alt="" />
+                                                 <AppImage id="aboutImg" src={aboutImgUrl} />
                                                 </div>
-                                                {aboutBlurb.split('\n').map((item, idx) => {
+                                                {parse(aboutBlurb)}
+                                                {/* {aboutBlurb.split('\n').map((item, idx) => {
                                                     return (
                                                         <span key={idx}>
                                                             {item}
                                                             <br />
                                                         </span>
                                                     )
-                                                })}
+                                                })} */}
                                             </div>
                                             <div className="about-contact about-contact-block--mobile">
                                                 <h6>How To Reach Me:</h6>
