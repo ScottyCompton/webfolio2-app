@@ -39,15 +39,7 @@ const AboutSection:React.FC = () => {
                                                 <div className="about-img d-block d-sm-none">
                                                  <AppImage id="aboutImg" src={aboutImgUrl} />
                                                 </div>
-                                                {parse(aboutBlurb)}
-                                                {/* {aboutBlurb.split('\n').map((item, idx) => {
-                                                    return (
-                                                        <span key={idx}>
-                                                            {item}
-                                                            <br />
-                                                        </span>
-                                                    )
-                                                })} */}
+                                                {parse(aboutBlurb.replace('#resumeurl#',resumeUrl))}                                                
                                             </div>
                                             <div className="about-contact about-contact-block--mobile">
                                                 <h6>How To Reach Me:</h6>
