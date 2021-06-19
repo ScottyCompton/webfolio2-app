@@ -1,3 +1,4 @@
+import ImgUrl from '../helpers/appImageUrl';
 import {useAppSelector} from '../hooks/redux-hooks';
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
@@ -92,7 +93,7 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
 
 
         const logoStyle = {
-            backgroundImage: `url(${previewImgUrl})`
+            backgroundImage: `url(${ImgUrl(previewImgUrl)})`
         }
 
 
@@ -180,7 +181,7 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
                                                 <GalleryTile 
                                                     key={idx}
                                                     handleClick={toggleGalleryMode}
-                                                    src={img.auxImgUrl}
+                                                    src={ImgUrl(img.auxImgUrl)}
                                                     idx={idx}
                                                     auxImgAspectRatio={auxImgAspectRatio}
                                                 />)
@@ -192,9 +193,9 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
                                         <div className={slideClass}>
                                             {galleryMode === 'slideshow' &&
                                                 <Slider ref={slider => slider} {...sliderSettings}>
-                                                {auxImgs.map((item) => {
+                                                {auxImgs.map((img) => {
                                                     return (
-                                                        <img key={uuid()} src={item.auxImgUrl} alt="" />
+                                                        <img key={uuid()} src={ImgUrl(img.auxImgUrl)} alt="" />
                                                     )
                                                 })}
                                                 </Slider>                                  
