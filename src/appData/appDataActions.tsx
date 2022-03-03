@@ -1,5 +1,5 @@
-import { getData } from '../helpers/handleHttp';
-//import getData from '../fixtures/staticData';
+// import { getData } from '../helpers/handleHttp';
+import getData from '../fixtures/staticData';
 import {setAppLoading, loadAppData, setRailStates, setReturnState} from './appDataSlice';
 import {RailState} from '../interfaces';
 

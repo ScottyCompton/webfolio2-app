@@ -69,10 +69,10 @@ const PortRailItem:React.FC<PortRailItemProps> = ({_id, slideIdx, slideIndexSett
                                 {techSpecs && <div><br />Technologies Used:<br /> {techSpecs}</div>}
                                 {hasDetails &&
                                     <div className="railItem__info--buttons">
-                                            {projectUrl && <span className="show-for-mobile"><a className="btn btn-outline-warning" rel="noreferrer" onClick={handleLinkClick} href={projectUrl} target="_blank">Visit Website</a></span>}
-                                            {hasAuxImgs && <span className="show-for-mobile"><Link className="btn btn-outline-warning" data-id={_id} onClick={handleViewDetailsClick} to={`/portfolio/${_id}`}>View Details</Link></span>}
-                                            {projectUrl && <span className="show-for-desktop"><a className="btn btn-outline-warning btn-sm" rel="noreferrer" onClick={handleLinkClick} href={projectUrl} target="_blank">Visit Website</a></span>}
-                                            {hasAuxImgs && <span className="show-for-desktop"><Link className="btn btn-outline-warning btn-sm" data-id={_id} onClick={handleViewDetailsClick} to={`/portfolio/${_id}`}>View Details</Link></span>}
+                                            {projectUrl && <span className="show-for-mobile"><a className="btn btn-outline-warning rail-item-button" rel="noreferrer" onClick={handleLinkClick} href={projectUrl} target="_blank">Visit Website</a></span>}
+                                            {hasAuxImgs && <span className="show-for-mobile"><Link className="btn btn-outline-warning rail-item-button" data-id={_id} onClick={handleViewDetailsClick} to={`/portfolio/${_id}`}>View Details</Link></span>}
+                                            {projectUrl && <span className="show-for-desktop"><a className="btn btn-outline-warning btn-sm rail-item-button" rel="noreferrer" onClick={handleLinkClick} href={projectUrl} target="_blank">Visit Website</a></span>}
+                                            {hasAuxImgs && <span className="show-for-desktop"><Link className="btn btn-outline-warning btn-sm rail-item-button" data-id={_id} onClick={handleViewDetailsClick} to={`/portfolio/${_id}`}>View Details</Link></span>}
                                     </div>                            
                                 }
                                 <div className="show-for-mobile railitem_close-button">

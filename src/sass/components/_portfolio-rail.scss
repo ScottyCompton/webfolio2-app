@@ -62,6 +62,12 @@
     @media screen and (min-width: $sm-breakpoint) {
         justify-content: space-between;
     }
+
+    @media screen and (min-width: $md-breakpoint) {
+        .rail-item-button {
+            font-size: 0.7rem!important;
+        }    
+    }
 }
 
 .railItem__outer {
@@ -99,14 +105,14 @@
         transition: all 500ms ease-in-out;
         h5 {
             padding: 1% 0;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             border-top: 1px solid $gray-400;
             border-bottom: none;
             @media screen and (min-width: $md-breakpoint) {
                 font-size: 1.2rem;
             }
             @media screen and (min-width: $lg-breakpoint) {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
         }
         .railItem__info--short-desc {
@@ -119,7 +125,7 @@
             width: 96%;
             font-size: 1.0rem;
             @media screen and (min-width: $md-breakpoint) {
-                font-size: 0.9rem
+                font-size: 0.7rem
             }
             @media screen and (min-width: $lg-breakpoint) {
                 border-left: none;

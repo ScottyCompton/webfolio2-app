@@ -7615,6 +7615,9 @@ body {
   @media screen and (min-width: 576px) {
     .railItem__info--buttons {
       justify-content: space-between; } }
+  @media screen and (min-width: 768px) {
+    .railItem__info--buttons .rail-item-button {
+      font-size: 0.7rem !important; } }
 
 .railItem__outer {
   padding: 0;
@@ -7649,7 +7652,7 @@ body {
     transition: all 500ms ease-in-out; }
     .railItem__inner .railItem__info h5 {
       padding: 1% 0;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       border-top: 1px solid #adafae;
       border-bottom: none; }
       @media screen and (min-width: 768px) {
@@ -7657,7 +7660,7 @@ body {
           font-size: 1.2rem; } }
       @media screen and (min-width: 992px) {
         .railItem__inner .railItem__info h5 {
-          font-size: 1.3rem; } }
+          font-size: 1.1rem; } }
     .railItem__inner .railItem__info .railItem__info--short-desc {
       height: 0;
       opacity: 0;
@@ -7669,7 +7672,7 @@ body {
       font-size: 1.0rem; }
       @media screen and (min-width: 768px) {
         .railItem__inner .railItem__info .railItem__info--short-desc {
-          font-size: 0.9rem; } }
+          font-size: 0.7rem; } }
       @media screen and (min-width: 992px) {
         .railItem__inner .railItem__info .railItem__info--short-desc {
           border-left: none;
