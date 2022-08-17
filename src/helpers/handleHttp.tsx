@@ -75,3 +75,5 @@ export const deleteData = async (endpoint:string) => {
     const data = await response.json();
     return data;
 }
+
+export default getData;

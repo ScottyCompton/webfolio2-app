@@ -1,13 +1,15 @@
-// import { getData } from '../helpers/handleHttp';
-import getData from '../fixtures/staticData';
+import getRemoteData  from '../helpers/handleHttp';
+import getStaticData from '../fixtures/staticData';
 import {setAppLoading, loadAppData, setRailStates, setReturnState} from './appDataSlice';
 import {RailState} from '../interfaces';
 
 export const appDataActions_loadAppData = () => {
-
+    const getData = process.env.REACT_APP_REMOTEDATA ? getRemoteData : getStaticData;
     return async (dispatch: any) => {
         try {
             setAppLoading(true)
+            // the resource is an empty string b/c I just load all the app data, so no
+            // there is not an explicit endpoint to pass in
             getData('').then((payload:any) => {
                 dispatch(loadAppData(payload))
             }).then(() => {

@@ -41,7 +41,9 @@ const PortfolioCategoryRail:React.FC<PortCategoryRailProps> = ({category_id}) =>
                 const thisRailState = railStates.filter((rail) => {
                     return rail._id === category_id
                 })
-                setInitialSlide(thisRailState[0].currentSlide);    
+                if(thisRailState && thisRailState.length !== 0) {
+                    setInitialSlide(thisRailState[0].currentSlide);    
+                }
             } else {
                 setInitialSlide(0)
             }
