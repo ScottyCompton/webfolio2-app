@@ -1,10 +1,11 @@
-import getRemoteData  from '../helpers/handleHttp';
+import getDBData  from '../helpers/handleHttp';
 import getStaticData from '../fixtures/staticData';
 import {setAppLoading, loadAppData, setRailStates, setReturnState} from './appDataSlice';
 import {RailState} from '../interfaces';
 
 export const appDataActions_loadAppData = () => {
-    const getData = process.env.REACT_APP_REMOTEDATA ? getRemoteData : getStaticData;
+    const getData = process.env.REACT_APP_USE_STATIC_DATA === 'true' ? getStaticData : getDBData;
+
     return async (dispatch: any) => {
         try {
             setAppLoading(true)

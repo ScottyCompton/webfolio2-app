@@ -1,4 +1,3 @@
-import React from 'react';
 import Slider from 'react-slick';
 import {v4 as uuid} from 'uuid';
 import PortRailItem from './PortRailItem';

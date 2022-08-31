@@ -11,7 +11,7 @@ const HeroSlider:React.FC = () => {
     const appLoaded = useAppSelector(state => !state.appData.ui.isLoading) 
     const [orientation, setOrientation] = useState(window.innerWidth < window.innerHeight ? 'portrait' : 'landscape');
     const foregroundImg = sliderImgs.filter(img => img.orientation === orientation && img.isForeground === true)
-    const slides = sliderImgs.filter(img => img.orientation === orientation && img.isForeground === false)
+    const slides = sliderImgs.filter(img => img.orientation === orientation && img.isForeground === false).sort((a,b) => b.displayOrder < a.displayOrder ? 1 : -1)
 
 
     const handleResize = () => {
@@ -32,7 +32,7 @@ const HeroSlider:React.FC = () => {
             <div className={`heroslider-${orientation}`}>
                 <div className="heroslider__foreground trans-on-resize" style={{backgroundImage: `url(${foregroundImg[0].sliderImgUrl})`}}></div>
                 <div className="heroslider__background trans-on-resize hide-on-resize">
-                    <Carousel interval={7000} fade id="heroslider__carousel">
+                    <Carousel interval={5000} fade id="heroslider__carousel">
                         {slides.map((slide) => {
                             return (<Carousel.Item key={uuidv4()}>
                                 <img src={ImgUrl(slide.sliderImgUrl)} alt="" className="heroslider__carousel-img" />

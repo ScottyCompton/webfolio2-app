@@ -1,5 +1,4 @@
 
-const rootUrl = process.env.REACT_APP_API_ROOT;
 
 export interface PutDataConfiguration {
     method?: string;
@@ -8,9 +7,9 @@ export interface PutDataConfiguration {
 }
 
 export const getData = async (endpoint:string) => {
-    const response = await fetch(rootUrl + endpoint);   // e.g. http://mydata.xyz.com/categories
+    const response = await fetch(process.env.REACT_APP_API_ROOT + endpoint);   // e.g. http://mydata.xyz.com/categories
     if(!response.ok) {
-        console.log({status: response.status, message: 'Could not execute getData', url: rootUrl});
+        console.log({status: response.status, message: 'Could not execute getData', url: process.env.REACT_APP_API_ROOT});
         throw new Error('Could not execute getData');
     }
     const data = await response.json();
@@ -39,7 +38,7 @@ export const putData = async (endpoint:string, cfg:PutDataConfiguration) => {
     }
 
 
-    const response = await fetch(rootUrl + endpoint, configData);
+    const response = await fetch(process.env.REACT_APP_API_ROOT + endpoint, configData);
     
     if(!response.ok) {
         const errorObj = {
@@ -58,7 +57,7 @@ export const putData = async (endpoint:string, cfg:PutDataConfiguration) => {
 
 
 export const deleteData = async (endpoint:string) => {
-    const response = await fetch(rootUrl + endpoint, { // e.g. http://mydata.xyz.com/deletecat/123456
+    const response = await fetch(process.env.REACT_APP_API_ROOT + endpoint, { // e.g. http://mydata.xyz.com/deletecat/123456
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'}
     });   

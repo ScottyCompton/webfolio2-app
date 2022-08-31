@@ -39,6 +39,7 @@
     },
     "scripts": {
         "start": "set PORT=5000 && react-scripts start",
+        "test": "react-scripts test",
         "build": "react-scripts build",
         "compile-sass": "node-sass src/sass/styles.scss public/dist/css/style.min.css --output-style compressed -w",
         "eject": "react-scripts eject"
