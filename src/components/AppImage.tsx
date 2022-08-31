@@ -7,7 +7,7 @@ const AppImage:React.FC<AppImageProps> = (props) => {
         if(src) {
             if(!src.match(/^(http|https):\/\//))  {
                 // match means this is legacy data 
-                imgSrc = process.env.REACT_APP_API_ROOT + src;
+                imgSrc = process.env.REACT_APP_API_ROOT + '/' + src;
             }    
         } else {
             imgSrc = defaultImg;
