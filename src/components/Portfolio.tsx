@@ -1,5 +1,4 @@
 import React from 'react';
-import {v4 as uuidv4} from 'uuid';
 import {useAppSelector, useAppDispatch} from '../hooks/redux-hooks';
 import {useEffect} from 'react';
 import {appDataActions_setRailStates} from '../appData/appDataActions';
@@ -45,7 +44,7 @@ const Portfolio:React.FC = () => {
                         {
                             portCats.map((cat) => {
                                 return (
-                                <div className="portfolio-rail" key={uuidv4()}>
+                                <div className="portfolio-rail" key={`portfolio-rail-${Math.random()}` }>
                                     <h4 className="portfolio-rail__title">{cat.category}</h4>
                                     <PortfolioCatRail category_id={cat._id} />
                                 </div>  

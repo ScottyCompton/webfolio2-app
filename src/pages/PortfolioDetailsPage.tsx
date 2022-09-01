@@ -2,7 +2,6 @@ import ImgUrl from '../helpers/appImageUrl';
 import {useAppSelector} from '../hooks/redux-hooks';
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import {v4 as uuid} from 'uuid';
 import Slider from 'react-slick';
 import SliderArrow from '../components/SliderArrow';
 import GalleryTile from '../components/GalleryTile';
@@ -144,7 +143,7 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
                                                 <div className="Subdetail_left text-primary">Project Categories: </div>
                                                 <div className="Subdetail_right">
                                                 {projectCats.map((cat, index) => {
-                                                        return (<span key={uuid()}>{cat.category}{index !== projectCats.length-1 && ', '}</span>)
+                                                        return (<span key={`project-cat-${Math.random()}`}>{cat.category}{index !== projectCats.length-1 && ', '}</span>)
                                                     })
                                                 }    
                                                 </div>
@@ -195,7 +194,7 @@ const PortfolioItemDetailsPage:React.FC<PortfolioItemDetailsProps> = ({location}
                                                 <Slider ref={slider => slider} {...sliderSettings}>
                                                 {auxImgs.map((img) => {
                                                     return (
-                                                        <img key={uuid()} src={ImgUrl(img.auxImgUrl)} alt="" />
+                                                        <img key={`aux-img-${Math.random()}`} src={ImgUrl(img.auxImgUrl)} alt="" />
                                                     )
                                                 })}
                                                 </Slider>                                  

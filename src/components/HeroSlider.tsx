@@ -2,7 +2,6 @@ import {useAppSelector} from '../hooks/redux-hooks';
 import {useState} from 'react';
 import useEvent from '../hooks/useEvent';
 import {Container, Row, Col, Carousel} from 'react-bootstrap';
-import {v4 as uuidv4} from 'uuid';
 import ImgUrl from '../helpers/appImageUrl';
 
 const HeroSlider:React.FC = () => {
@@ -34,7 +33,7 @@ const HeroSlider:React.FC = () => {
                 <div className="heroslider__background trans-on-resize hide-on-resize">
                     <Carousel interval={5000} fade id="heroslider__carousel">
                         {slides.map((slide) => {
-                            return (<Carousel.Item key={uuidv4()}>
+                            return (<Carousel.Item key={`hero-slide-${Math.random()}`}>
                                 <img src={ImgUrl(slide.sliderImgUrl)} alt="" className="heroslider__carousel-img" />
                             </Carousel.Item>)
                         })}

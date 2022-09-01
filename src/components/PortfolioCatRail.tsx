@@ -1,5 +1,4 @@
 import Slider from 'react-slick';
-import {v4 as uuid} from 'uuid';
 import PortRailItem from './PortRailItem';
 import SliderArrow from './SliderArrow';
 import {useAppSelector, useAppDispatch} from '../hooks/redux-hooks';
@@ -145,7 +144,7 @@ const PortfolioCategoryRail:React.FC<PortCategoryRailProps> = ({category_id}) =>
                 <Slider {...settings}>
                     {filteredList.map((item, slideIdx) => {
                         return (
-                            <PortRailItem _id={item._id} slideIndexSetter={setCurrentSlideIndex} slideIdx={slideIdx} key={uuid()} />
+                            <PortRailItem _id={item._id} slideIndexSetter={setCurrentSlideIndex} slideIdx={slideIdx} key={`portrailitem-${Math.random()}`} />
                         )
                     })}                
                 </Slider>

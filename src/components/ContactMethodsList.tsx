@@ -1,6 +1,5 @@
 import {useAppSelector} from '../hooks/redux-hooks';
 import ContactListItem from './ContactListItem';
-import {v4 as uuidv4 } from 'uuid';
 
 
 const ContactMethodsList:React.FC = () => {
@@ -11,7 +10,7 @@ const ContactMethodsList:React.FC = () => {
     if(contactItems && contactItems.length !== 0) {
         out =  contactItems.map((item) => {
             return (
-                <ContactListItem key={uuidv4()} {...item} className="about-contact-block" />
+                <ContactListItem key={`contact-list-item-${Math.random()}`} {...item} className="about-contact-block" />
             )
         })
     }
